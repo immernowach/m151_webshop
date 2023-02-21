@@ -1,5 +1,5 @@
 # Webshop
-* Modul 151 - Simon W. und Philipp S.*
+*Modul 151 - Simon W. und Philipp S.*
 
 ## Setup
 
@@ -7,7 +7,7 @@
 
 Installieren Sie das folgende Programm:
 
-* [XAMPP](https://www.apachefriends.org/de/index.html)
+[XAMPP](https://www.apachefriends.org/de/index.html)
 
 Starten Sie in XAMPP die Module `Apache` und `MySQL`.
 
@@ -24,3 +24,5 @@ mysql -u root -p webshop < webshop.sql
 Kopieren Sie den Inhalt des Ordners `webapp` in den Ordner `htdocs` von XAMPP.
 
 Nun können Sie die Webapp unter `http://localhost/` aufrufen.
+
+## Usage
