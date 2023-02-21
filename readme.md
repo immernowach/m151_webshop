@@ -11,7 +11,7 @@ Starten Sie in XAMPP die Module `Apache` und `MySQL`.
 
 ## Datenbank
 
-Importieren Sie mit dem folgenden Befehl die Datenbank aus der Datei `webshop.sql` in der MySQL Datenbank:
+Importieren Sie mit dem folgenden Befehl die Datenbank aus der Datei `db/webshop.sql` in der MySQL Datenbank:
 
 ```SQL
 mysql -u root -p webshop < webshop.sql
