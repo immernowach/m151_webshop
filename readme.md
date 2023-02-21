@@ -1,9 +1,7 @@
 # Webshop
 *Modul 151 - Simon W. und Philipp S.*
 
-## Setup
-
-### Programme
+## Programme
 
 Installieren Sie das folgende Programm:
 
@@ -11,7 +9,7 @@ Installieren Sie das folgende Programm:
 
 Starten Sie in XAMPP die Module `Apache` und `MySQL`.
 
-### Datenbank
+## Datenbank
 
 Importieren Sie die Datenbank aus der Datei `webshop.sql` in der MySQL Datenbank mit dem folgenden Befehl:
 
@@ -19,10 +17,14 @@ Importieren Sie die Datenbank aus der Datei `webshop.sql` in der MySQL Datenbank
 mysql -u root -p webshop < webshop.sql
 ```
 
-### Webapp
+## Webapp
 
-Kopieren Sie den Inhalt des Ordners `webapp` in den Ordner `htdocs` von XAMPP.
+Klonen Sie das Repository in einen beliebigen Ordner mit dem folgenden Befehl:
 
-Nun können Sie die Webapp unter `http://localhost/` aufrufen.
+```bash
+git clone https://github.com/immernowach/m151_webshop
+```
 
-## Usage
+Kopieren Sie den Inhalt des Ordners `app` in den Ordner `htdocs` von XAMPP.
+
+Nun können Sie den Webshop unter `http://localhost/` aufrufen.
