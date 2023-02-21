@@ -11,7 +11,7 @@ Starten Sie in XAMPP die Module `Apache` und `MySQL`.
 
 ## Datenbank
 
-Importieren Sie die Datenbank aus der Datei `webshop.sql` in der MySQL Datenbank mit dem folgenden Befehl:
+Importieren Sie mit dem folgenden Befehl die Datenbank aus der Datei `webshop.sql` in der MySQL Datenbank:
 
 ```SQL
 mysql -u root -p webshop < webshop.sql
@@ -19,7 +19,7 @@ mysql -u root -p webshop < webshop.sql
 
 ## Webapp
 
-Klonen Sie das Repository in einen beliebigen Ordner mit dem folgenden Befehl:
+Klonen Sie mit dem folgenden Befehl das Repository in einen beliebigen Ordner:
 
 ```bash
 git clone https://github.com/immernowach/m151_webshop
