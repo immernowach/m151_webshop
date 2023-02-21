@@ -16,11 +16,3 @@ create table users (
     country varchar(255),
     primary key (id)
 );
-
-create table orders (
-    id int(11) not null auto_increment,
-    user_id int(11) not null,
-    order_date datetime not null,
-    prize int(11) not null,
-    primary key (id)
-);
