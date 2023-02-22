@@ -10,7 +10,7 @@
 <body>
 
     <?php 
-        include '../include/header.inc.php'; 
+        include '../universal/header.inc.php'; 
     ?>
 
     <h1>Registrierung</h1>
