@@ -23,6 +23,6 @@ Klonen Sie mit dem folgenden Befehl das Repository in einen beliebigen Ordner:
 git clone https://github.com/immernowach/m151_webshop
 ```
 
-Kopieren Sie den Inhalt des Ordners `app` in den Ordner `htdocs` von XAMPP.
+Kopieren Sie den Inhalt des Ordners `m151_webshop` in den Ordner `htdocs` von XAMPP.
 
 Nun können Sie den Webshop unter `http://localhost/` aufrufen.
