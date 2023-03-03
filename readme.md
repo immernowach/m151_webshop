@@ -39,4 +39,4 @@ git clone https://github.com/immernowach/m151_webshop
 
 Kopieren Sie den Inhalt des Ordners `app` in den Ordner `htdocs` von XAMPP.
 
-Nun können Sie den Webshop unter `http://localhost/` aufrufen.
+Nun können Sie den Webshop unter [http://localhost/](http://localhost/) aufrufen.
