@@ -34,7 +34,7 @@ create table orders (
     user_id int(11) not null,
     product_id int(11) not null,
     quantity int(11) not null,
-    
+
     primary key (id),
     foreign key (user_id) references users(id),
     foreign key (product_id) references products(id)
