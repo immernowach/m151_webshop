@@ -14,62 +14,62 @@
         include '../universal/dbconnector.inc.php';
 
         // Initialisierung
-$error = $message =  '';
-$firstname = $lastname = $email = $password ='';
+        $error = $message =  '';
+        $firstname = $lastname = $email = $password ='';
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-  if(isset($_POST['firstname'])){
-    $email = trim($_POST['firstname']);
+        if(isset($_POST['firstname'])){
+          $firstname = trim($_POST['firstname']);
 
-    if(empty($firstname) || strlen($firstname) > 100 || filter_var($firstname, FILTER_VALIDATE_EMAIL) === false){
-      $error .= "Geben Sie bitte ein validen Vornamen ein.<br />";
-    }
-  } else {
-    $error.= "Geben Sie bitte ein validen Vornamen ein.<br />";
-  }
+          if(empty($firstname) || strlen($firstname) > 100){
+            $error .= "Geben Sie bitte ein validen Vornamen ein.<br />";
+          }
+        } else {
+          $error.= "Geben Sie bitte ein validen Vornamen ein.<br />";
+        }
 
-  if(isset($_POST['lastname'])){
-    $email = trim($_POST['lastname']);
+        if(isset($_POST['lastname'])){
+          $lastname = trim($_POST['lastname']);
 
-    if(empty($lastname) || strlen($lastname) > 100 || filter_var($lastname, FILTER_VALIDATE_EMAIL) === false){
-      $error .= "Geben Sie bitte ein validen Nachnamen ein.<br />";
-    }
-  } else {
-    $error.= "Geben Sie bitte ein validen Nachnamen ein.<br />";
-  }
+          if(empty($firstname) || strlen($firstname) > 100) {
+            $error .= "Geben Sie bitte ein validen Nachnamen ein.<br />";
+          }
+        } else {
+          $error.= "Geben Sie bitte ein validen Nachnamen ein.<br />";
+        }
 
-  if(isset($_POST['email'])){
-    $email = trim($_POST['email']);
+        if(isset($_POST['email'])){
+          $email = trim($_POST['email']);
 
-    if(empty($email) || strlen($email) > 100 || filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-      $error .= "Geben Sie bitte eine korrekte Emailadresse ein.<br />";
-    }
-  } else {
-    $error.= "Geben Sie bitte eine Emailadresse ein.<br />";
-  }
+          if(empty($email) || strlen($email) > 100 || filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+            $error .= "Geben Sie bitte eine korrekte Emailadresse ein.<br />";
+          }
+        } else {
+          $error.= "Geben Sie bitte eine Emailadresse ein.<br />";
+        }
 
-  if(isset($_POST['password'])){
-    $password = trim($_POST['password']); //trim and sanitize
-    $password = password_hash($password, PASSWORD_DEFAULT);
+        if(isset($_POST['password'])){
+          $password = trim($_POST['password']); //trim and sanitize
+          $password = password_hash($password, PASSWORD_DEFAULT);
 
-    if(empty($password) || !preg_match("/(?=^.{8,255}$)((?=.*\d+)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $password)){
-      $error .= "Geben Sie bitte einen korrektes Password ein.<br />";
-    }
-  } else {
-    $error.= "Geben Sie bitte ein Password ein.<br />";
-  }
-  
-  if(empty($error)) { // TODO check if email already exists, TODO insert firstname and lastname
-    $query = "INSERT INTO users (password, email) VALUES (?, ?)";
-    $stmt = $mysqli->prepare($query);
-    $stmt->bind_param("ss", $password, $email);
-    $stmt->execute();
-    $stmt->close();
-    $message = "Sie wurden erfolgreich registriert.";
-    header('Location: account.php');
-  }
-  }
+          if(empty($password) || !preg_match("/(?=^.{8,255}$)((?=.*\d+)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $password)){
+            $error .= "Geben Sie bitte einen korrektes Password ein.<br />";
+          }
+        } else {
+          $error.= "Geben Sie bitte ein Password ein.<br />";
+        }
+        
+        if(empty($error)) { // TODO check if email already exists, TODO insert firstname and lastname
+          $query = "INSERT INTO users (firstname, lastname, password, email) VALUES (?, ?, ?, ?)";
+          $stmt = $mysqli->prepare($query);
+          $stmt->bind_param("ssss", $firstname, $lastname, $password, $email);
+          $stmt->execute();
+          $stmt->close();
+          $message = "Sie wurden erfolgreich registriert.";
+          header('Location: account.php');
+        }
+      }
     ?>
 
     <h1>Registrierung</h1>
@@ -121,7 +121,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
           <input type="password" name="password" class="form-control" id="password"
             placeholder="Gross- und Kleinbuchstaben, Zahlen, Sonderzeichen, min. 8 Zeichen, keine Umlaute"
             pattern="(?=^.{8,}$)((?=.*\d+)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-            title="mindestens einen Gross-, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen, mindestens 8 Zeichen lang,keine Umlaute."
+            title="Mindestens einen Gross-/und einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen, mindestens 8 Zeichen lang, keine Umlaute."
             maxlength="255"
             required="true">
         </div>
