@@ -26,8 +26,21 @@ Auch den Apache Server können Sie direkt installieren. Eine Anleitung dazu gibt
 Importieren Sie mit dem folgenden Befehl die Datenbank aus der Datei `db/webshop.sql` in der MySQL Datenbank:
 
 ```SQL
-mysql -u root -p webshop < webshop.sql
+create database 151_webshop;
+use 151_webshop;
+source db/webshop.sql;
 ```
+
+Erstellen Sie einen Benutzer mit den folgenden Befehlen:
+Achtung: Nutzen Sie für den Benutzername und das Passwort nicht `webshop` sondern einen anderen Namen und ein anderes Passwort.
+
+```SQL
+CREATE USER 'webshop'@'localhost' IDENTIFIED BY 'webshop';
+GRANT ALL PRIVILEGES ON 151_webshop.* TO 'webshop'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+Passen Sie die Zugangsdaten in der Datei `app/universal/dbconnector.php` an.
 
 ## Webapp
 

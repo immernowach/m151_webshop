@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
-$username = 'philipp'; 
-$password = 'password'; 
-$database = '151_5_benutzer';
+$username = 'webshop'; 
+$password = 'webshop'; 
+$database = '151_webshop';
 
 
 // mit der Datenbank verbinden

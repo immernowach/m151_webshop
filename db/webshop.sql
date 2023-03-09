@@ -1,6 +1,3 @@
-create database 151_webshop;
-use 151_webshop;
-
 create table users (
     id int(11) not null auto_increment,
     email varchar(255),
