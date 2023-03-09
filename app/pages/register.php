@@ -15,9 +15,29 @@
 
         // Initialisierung
 $error = $message =  '';
-$firstname = $lastname = $email = '';
+$firstname = $lastname = $email = $password ='';
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+  if(isset($_POST['firstname'])){
+    $email = trim($_POST['firstname']);
+
+    if(empty($firstname) || strlen($firstname) > 100 || filter_var($firstname, FILTER_VALIDATE_EMAIL) === false){
+      $error .= "Geben Sie bitte ein validen Vornamen ein.<br />";
+    }
+  } else {
+    $error.= "Geben Sie bitte ein validen Vornamen ein.<br />";
+  }
+
+  if(isset($_POST['lastname'])){
+    $email = trim($_POST['lastname']);
+
+    if(empty($lastname) || strlen($lastname) > 100 || filter_var($lastname, FILTER_VALIDATE_EMAIL) === false){
+      $error .= "Geben Sie bitte ein validen Nachnamen ein.<br />";
+    }
+  } else {
+    $error.= "Geben Sie bitte ein validen Nachnamen ein.<br />";
+  }
 
   if(isset($_POST['email'])){
     $email = trim($_POST['email']);
@@ -40,16 +60,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $error.= "Geben Sie bitte ein Password ein.<br />";
   }
   
-  if(empty($error)) { // wenn kein Fehler vorhanden ist, schreiben der Daten in die Datenbank
-    // INPUT Query erstellen, welches password, email in die Datenbank schreibt
+  if(empty($error)) { // TODO check if email already exists, TODO insert firstname and lastname
     $query = "INSERT INTO users (password, email) VALUES (?, ?)";
-    // Query vorbereiten mit prepare();
     $stmt = $mysqli->prepare($query);
-    // Parameter an Query binden mit bind_param();
     $stmt->bind_param("ss", $password, $email);
-    // query ausführen mit execute();
     $stmt->execute();
-    // Verbindung schliessen
     $stmt->close();
     $message = "Sie wurden erfolgreich registriert.";
     header('Location: account.php');
@@ -73,6 +88,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         }
       ?>
       <form action="" method="post">
+        <!-- firstname -->
+        <div class="form-group">
+          <label for="firstname">Vorname *</label>
+          <input type="text" name="firstname" class="form-control" id="firstname"
+            value="<?php echo $firstname ?>"
+            placeholder="Geben Sie Ihren Vornamen an."
+            maxlength="100"
+            required="true">
+        </div>
+        <!-- lastname -->
+        <div class="form-group">
+          <label for="lastname">Nachname *</label>
+          <input type="text" name="lastname" class="form-control" id="lastname"
+            value="<?php echo $lastname ?>"
+            placeholder="Geben Sie Ihren Nachnamen an."
+            maxlength="100"
+            required="true">
+        </div>
         <!-- email -->
         <div class="form-group">
           <label for="email">Email *</label>
