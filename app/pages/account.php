@@ -11,6 +11,7 @@
 
     <?php 
         include '../universal/header.inc.php';
+        include '../universal/dbconnector.inc.php';
 
         $firstname = $lastname = $email = $street = $city = $state = $error = "";
 
