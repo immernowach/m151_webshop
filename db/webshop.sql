@@ -1,25 +1,31 @@
-create table users (
-    id int(11) not null auto_increment,
+CREATE DATABASE IF NOT EXISTS webshop;
+
+GRANT ALL PRIVILEGES ON webshop.* TO 'webshop'@'%';
+
+USE webshop;
+
+CREATE TABLE users (
     firstname varchar(100),
     lastname varchar(100),
-    email varchar(255),
+    email varchar(255) not null,
     password varchar(255),
 
-    primary key (id)
+    primary key (email)
 );
 
-create table locations (
+CREATE TABLE locations (
     id int(11) not null auto_increment,
     address varchar(255),
     city_name varchar(255),
     zip varchar(255),
     country varchar(255),
+    fk_email varchar(255) not null,
 
     primary key (id),
-    foreign key (id) references users(id)
+    foreign key (fk_email) references users(email)
 );
 
-create table products (
+CREATE TABLE products (
     id int(11) not null auto_increment,
     name varchar(255) not null,
     description varchar(255),
@@ -28,12 +34,12 @@ create table products (
     primary key (id)
 );
 
-create table orders (
+CREATE TABLE orders (
     id int(11) not null auto_increment,
-    user_id int(11) not null,
+    user_email varchar(255) not null,
     product_id int(11) not null,
     quantity int(11) not null,
     primary key (id),
-    foreign key (user_id) references users(id),
+    foreign key (user_email) references users(email),
     foreign key (product_id) references products(id)
 );

@@ -53,3 +53,23 @@ git clone https://github.com/immernowach/m151_webshop
 Kopieren Sie den Inhalt des Ordners `app` in den Ordner `htdocs` von XAMPP.
 
 Nun können Sie den Webshop unter [http://localhost/](http://localhost/) aufrufen.
+
+## Docker
+
+Laden Sie sich das Repository herunter und navigieren Sie in den Ordner.
+
+```bash
+git clone https://github.com/immernowach/m151_webshop
+```
+
+Danach können Sie die Docker Container starten.
+
+```bash
+docker-compose up -d
+```
+
+Als letztes müssen Sie noch die Datenbank importieren.
+
+```bash
+docker exec -i webshop-db bash -l -c "cd / && mysql -uroot -pexample < /webshop.sql"
+```
