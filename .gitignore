@@ -1,6 +1,7 @@
 compose-dev.yaml
 docker-compose.yaml
 /app/index.php
+.vscode
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,macos
