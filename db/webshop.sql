@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS webshop;
 
-GRANT ALL PRIVILEGES ON webshop.* TO 'webshop'@'%';
+GRANT ALL PRIVILEGES ON webshop.* TO 'webshop'@'localhost';
 
 USE webshop;
 
