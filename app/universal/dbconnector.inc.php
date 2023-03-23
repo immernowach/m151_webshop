@@ -1,5 +1,5 @@
 <?php
-$host = 'db';
+$host = 'localhost';
 $username = 'webshop'; 
 $password = 'webshop'; 
 $database = 'webshop';
