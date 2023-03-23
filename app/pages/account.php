@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <?php 
+    <?php
         include '../universal/header.inc.php';
         include '../universal/dbconnector.inc.php';
 
