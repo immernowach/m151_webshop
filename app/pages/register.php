@@ -77,7 +77,7 @@
     <div class="container">
       <h1>Registrierung</h1>
       <p>
-        Bitte registrieren Sie sich, damit Sie diesen Dienst benutzen können.
+        Bitte registrieren Sie sich, damit Sie diesen Dienst benutzen können. 
       </p>
       <?php
         // Ausgabe der Fehlermeldungen

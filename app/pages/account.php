@@ -11,30 +11,15 @@
 
     <?php 
         include '../universal/header.inc.php';
-        include '../universal/dbconnector.inc.php';
-
-        $firstname = $lastname = $email = $street = $city = $state = $error = "";
-
-        $query = "SELECT * FROM users LIMIT 1";
-        $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result=$stmt->get_result();
-
-        if($result->num_rows == false){
-            $error .= "E-Mail Adresse oder Passwort sind falsch";
-        }
-
-        $result->free();
-        $stmt->close();
+        
     ?>
+
+    <h1>Mein Profil</h1>
 
     <a href="login.php">Login</a>
     <a href="register.php">Registrieren</a>
     <a href="accountdata.php">Daten ändern</a>
     <a href="logout.php">Logout</a>
-
-    <h1>Mein Profil</h1>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
