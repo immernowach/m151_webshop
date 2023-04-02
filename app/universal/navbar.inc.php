@@ -6,11 +6,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="index.php">Shop</a>
+        <li class="nav-item">
+            <a class="nav-link" href="../pages/index.php">Shop</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="shopping-cart.php">Einkaufswagen</a>
+            <a class="nav-link" href="shopping-cart.php">Warenkorb</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="myorders.php">Meine Bestellungen</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="account.php">Mein Profil</a>

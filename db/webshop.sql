@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS webshop;
 CREATE DATABASE IF NOT EXISTS webshop;
 
 CREATE USER 'webshop'@'localhost' IDENTIFIED BY 'webshop';
@@ -31,6 +32,7 @@ CREATE TABLE products (
     name varchar(255) not null,
     description varchar(255),
     price decimal(10,2),
+    imagename varchar(255),
 
     primary key (id)
 );

@@ -1,0 +1,10 @@
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 1', 'Dies ist ein Beispiel', 10.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 2', 'Dies ist ein Beispiel', 11.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 3', 'Dies ist ein Beispiel', 11.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 4', 'Dies ist ein Beispiel', 13.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 5', 'Dies ist ein Beispiel', 14.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 6', 'Dies ist ein Beispiel', 20.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 7', 'Dies ist ein Beispiel', 21.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 8', 'Dies ist ein Beispiel', 22.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 9', 'Dies ist ein Beispiel', 23.00, 'example.png');
+INSERT INTO products (name, description, price, imagename) VALUES ('Product 10', 'Dies ist ein Beispiel', 24.00, 'example.png');

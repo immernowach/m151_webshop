@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<?php 
-        include '../universal/header.inc.php';
+    <?php 
+        include '../universal/navbar.inc.php';
         include('../universal/dbconnector.inc.php');
 
         $error = '';
@@ -45,7 +45,9 @@
     
                 if (password_verify($password, $passwordfromdb)) {
                     $message .= "Sie sind nun eingeloggt";
-                    header("Location: ./account.php");
+                    session_start();
+                    $_SESSION['loggedin'] = true;
+                    header("Location: ./index.php");
                 } else {
                     $error .= "E-Mail Adresse oder Passwort sind falsch";
                 }
@@ -71,7 +73,7 @@
         ?>
         <form action="" method="POST">
             <!-- email -->
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 25px;">
                 <label for="email">E-Mail-Adresse *</label>
                 <input type="text" name="email" class="form-control" id="email"
                     value=""
@@ -81,16 +83,17 @@
                     required="true">
             </div>
             <!-- password -->
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 25px;">
                 <label for="password">Password *</label>
                 <input type="password" name="password" class="form-control" id="password"
                     placeholder="Passwort hier eingeben"
                     maxlength="255"
                     required="true">
             </div>
-            <button type="submit" name="button" value="submit" class="btn btn-info">Senden</button>
-            <button type="reset" name="button" value="reset" class="btn btn-warning">Löschen</button>
+            <button type="submit" name="button" value="submit" class="btn btn-primary" style="margin-top: 25px; margin-right: 25px;">Senden</button>
+            <button type="reset" name="button" value="reset" class="btn btn-warning" style="margin-top: 25px;">Löschen</button>
         </form>
+        <a href="./register.php" class="btn btn-primary" style="margin-top: 25px;">Kein Account? Registrieren</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

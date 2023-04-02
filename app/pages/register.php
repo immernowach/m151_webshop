@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrierung</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 
     <?php 
-        include '../universal/header.inc.php'; 
+        include '../universal/navbar.inc.php'; 
         include '../universal/dbconnector.inc.php';
 
-        // Initialisierung
         $error = $message =  '';
         $firstname = $lastname = $email = $password ='';
 
@@ -71,9 +70,6 @@
         }
       }
     ?>
-
-    <h1>Registrierung</h1>
-
     <div class="container">
       <h1>Registrierung</h1>
       <p>
@@ -89,7 +85,7 @@
       ?>
       <form action="" method="post">
         <!-- firstname -->
-        <div class="form-group">
+        <div class="form-group" style="margin-top: 25px;">
           <label for="firstname">Vorname *</label>
           <input type="text" name="firstname" class="form-control" id="firstname"
             value="<?php echo $firstname ?>"
@@ -98,7 +94,7 @@
             required="true">
         </div>
         <!-- lastname -->
-        <div class="form-group">
+        <div class="form-group" style="margin-top: 25px;">
           <label for="lastname">Nachname *</label>
           <input type="text" name="lastname" class="form-control" id="lastname"
             value="<?php echo $lastname ?>"
@@ -107,7 +103,7 @@
             required="true">
         </div>
         <!-- email -->
-        <div class="form-group">
+        <div class="form-group" style="margin-top: 25px;">
           <label for="email">Email *</label>
           <input type="email" name="email" class="form-control" id="email"
             value="<?php echo $email ?>"
@@ -116,7 +112,7 @@
             required="true">
         </div>
         <!-- password -->
-        <div class="form-group">
+        <div class="form-group" style="margin-top: 25px;">
           <label for="password">Password *</label>
           <input type="password" name="password" class="form-control" id="password"
             placeholder="Gross- und Kleinbuchstaben, Zahlen, Sonderzeichen, min. 8 Zeichen, keine Umlaute"
@@ -125,8 +121,8 @@
             maxlength="255"
             required="true">
         </div>
-        <button type="submit" name="button" value="submit" class="btn btn-info">Senden</button>
-        <button type="reset" name="button" value="reset" class="btn btn-warning">Löschen</button>
+        <button type="submit" name="button" value="submit" class="btn btn-primary" style="margin-top: 25px; margin-right: 25px;">Senden</button>
+        <button type="reset" name="button" value="reset" class="btn btn-warning" style="margin-top: 25px;">Löschen</button>
       </form>
     </div>
 
