@@ -3,6 +3,18 @@ session_start();
 session_regenerate_id();
 ?>
 
+<?php
+
+if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
+
+    // Set the post variables so we easily identify them, also make sure they are integer
+    $product_id = (int)$_POST['product_id'];
+    
+    $_SESSION['shopping_cart'][$product_id] = $product_id;
+
+} 
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -46,7 +58,7 @@ session_regenerate_id();
                                         <h4 class="link-dark fw-bold"><?= $row["price"] ?> CHF</h4>
                                     </div>
 
-                                    <form action="../universal/addtoshoppingcart.inc.php" method="post">
+                                    <form action="./addtoshoppingcart.php" method="post">
                                         <input type="hidden" name="product_id" value="<?= $row["id"] ?>">
 
                                         <button type="submit" class="btn btn-sm btn-outline-dark">Zum Warenkorb hinzufügen</button>

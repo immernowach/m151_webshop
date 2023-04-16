@@ -24,10 +24,12 @@
     <h1>Warenkorb</h1>
 
     <?php 
-        if(isset($_SESSION['shopping_cart'])){
-            echo $_SESSION['shopping_cart'];
+        if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+            foreach($_SESSION['cart'] as $product_id => $quantity) {
+                echo $product_id . ' ' . $quantity . '<br>';
+            }
         } else {
-            echo "Der Warenkorb ist leer.";
+            echo 'Warenkorb ist leer';
         }
     ?>
 
