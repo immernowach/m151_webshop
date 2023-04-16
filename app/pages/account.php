@@ -29,6 +29,7 @@
             die();
         }
         if ($_SESSION['loggedin']) {
+            echo '<a href="./myaccount.php" class="btn btn-primary" style="margin-top: 25px;">Meine Daten</a> ';
             echo '<a href="../universal/logout.inc.php" class="btn btn-primary" style="margin-top: 25px;">Logout</a>';
         }
     ?>

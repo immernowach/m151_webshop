@@ -30,7 +30,7 @@
         }
         
         if(empty($error)){
-            $query = "SELECT password FROM users WHERE email = ?";
+            $query = "SELECT * FROM users WHERE email = ?";
             $stmt = $mysqli->prepare($query);
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -47,6 +47,9 @@
                     $message .= "Sie sind nun eingeloggt";
                     session_start();
                     $_SESSION['loggedin'] = true;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['firstname'] = $row['firstname'];
+                    $_SESSION['lastname'] = $row['lastname'];
                     header("Location: ./index.php");
                 } else {
                     $error .= "E-Mail Adresse oder Passwort sind falsch";
@@ -90,8 +93,7 @@
                     maxlength="255"
                     required="true">
             </div>
-            <button type="submit" name="button" value="submit" class="btn btn-primary" style="margin-top: 25px; margin-right: 25px;">Senden</button>
-            <button type="reset" name="button" value="reset" class="btn btn-warning" style="margin-top: 25px;">Löschen</button>
+            <button type="submit" name="button" value="submit" class="btn btn-primary" style="margin-top: 25px; margin-right: 25px;">Login</button>
         </form>
         <a href="./register.php" class="btn btn-primary" style="margin-top: 25px;">Kein Account? Registrieren</a>
     </div>
