@@ -19,19 +19,35 @@
 
     <?php 
         include '../universal/navbar.inc.php'; 
+        include '../universal/dbconnector.inc.php';
     ?>
 
     <h1>Warenkorb</h1>
 
     <?php 
         if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+            $absolute_total = 0;
             foreach($_SESSION['cart'] as $product_id => $quantity) {
-                echo $product_id . ' ' . $quantity . '<br>';
+
+                // get the product name and price from the database
+                $result = $mysqli->query("SELECT name, price FROM products WHERE id = $product_id");
+                $obj = $result->fetch_object();
+
+                $subtotal = $obj->price * $quantity;
+                $absolute_total = $absolute_total + $subtotal;
+
+                echo '<h3>' . $obj->name . '</h3>';
+                echo '<b>Menge: </b>' . $quantity . '<b> Preis: </b>' . $subtotal . ' CHF';
             }
+            echo '<br><br><b>Gesamtpreis: ' . $absolute_total . ' CHF</b>';
         } else {
             echo 'Warenkorb ist leer';
         }
     ?>
+
+    <form action="./successfullyordered.php" method="post">
+        <button type="submit" class="btn btn-primary">Bestellen</button>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

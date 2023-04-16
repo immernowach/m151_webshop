@@ -13,9 +13,6 @@
             <a class="nav-link" href="shopping-cart.php">Warenkorb</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="myorders.php">Meine Bestellungen</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" href="account.php">Mein Profil</a>
         </li>
     </ul>

@@ -4,7 +4,7 @@
     if ($_SESSION['loggedin'] == false) {
         header('Location: ../pages/login.php');
     }
-    include '../universal/database.inc.php';
+    include '../universal/dbconnector.inc.php';
 ?>
 
 <?php 

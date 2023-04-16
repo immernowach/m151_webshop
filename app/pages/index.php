@@ -37,7 +37,7 @@ if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
             <?php
             require_once "../universal/dbconnector.inc.php";
 
-            $result = $mysqli->query("SELECT * FROM products LIMIT 25");
+            $result = $mysqli->query("SELECT * FROM products LIMIT 100"); // limited to 100 rows for performance reasons - increase if needed or add pages
 
             if ($result->num_rows > 0) {
                 // output data of each row
@@ -61,8 +61,8 @@ if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
                                     <form action="./addtoshoppingcart.php" method="post">
                                         <input type="hidden" name="product_id" value="<?= $row["id"] ?>">
 
-                                        <button type="submit" class="btn btn-sm btn-outline-dark">Zum Warenkorb hinzufügen</button>
-                                    </form>
+                                        <button type="submit" class="btn btn-sm btn-primary">Zum Warenkorb hinzufügen</button>
+                                    </form> 
                                 </div>
                             </div>
                         </div>
