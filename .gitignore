@@ -3,6 +3,8 @@ docker-compose.yaml
 /app/index.php
 .vscode
 *.session.sql
+.idea
+DOCKERFILE
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,macos
