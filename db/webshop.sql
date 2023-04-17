@@ -1,9 +1,6 @@
 DROP DATABASE IF EXISTS webshop;
 CREATE DATABASE IF NOT EXISTS webshop;
 
-CREATE USER 'webshop'@'localhost' IDENTIFIED BY 'webshop';
-GRANT ALL PRIVILEGES ON webshop.* TO 'webshop'@'localhost';
-
 USE webshop;
 
 CREATE TABLE users (
@@ -24,3 +21,7 @@ CREATE TABLE products (
 
     primary key (id)
 );
+
+CREATE USER 'webshop'@'localhost' IDENTIFIED BY 'webshop';
+GRANT ALL PRIVILEGES ON webshop.* TO 'webshop'@'localhost';
+FLUSH PRIVILEGES;
