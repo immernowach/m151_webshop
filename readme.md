@@ -26,8 +26,8 @@ Auch den Apache Server können Sie direkt installieren. Eine Anleitung dazu gibt
 Importieren Sie mit dem folgenden Befehl die Datenbank aus der Datei `db/webshop.sql` in der MySQL Datenbank:
 
 ```SQL
-create database 151_webshop;
-use 151_webshop;
+create database webshop;
+use webshop;
 source db/webshop.sql;
 ```
 
