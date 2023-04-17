@@ -40,20 +40,20 @@
           $firstname = trim($_POST['firstname']);
 
           if(empty($firstname) || strlen($firstname) > 100){
-            $error .= "Geben Sie bitte ein validen Vornamen ein.<br />";
+            $error .= "Geben Sie bitte ein validen Vornamen ein.<br>";
           }
         } else {
-          $error.= "Geben Sie bitte ein validen Vornamen ein.<br />";
+          $error.= "Geben Sie bitte ein validen Vornamen ein.<br>";
         }
 
         if(isset($_POST['lastname'])){
           $lastname = trim($_POST['lastname']);
 
           if(empty($firstname) || strlen($firstname) > 100) {
-            $error .= "Geben Sie bitte ein validen Nachnamen ein.<br />";
+            $error .= "Geben Sie bitte ein validen Nachnamen ein.<br>";
           }
         } else {
-          $error.= "Geben Sie bitte ein validen Nachnamen ein.<br />";
+          $error.= "Geben Sie bitte ein validen Nachnamen ein.<br>";
         }
 
         
@@ -86,14 +86,14 @@
     <h1>Meine Daten</h1>
 
     <div class="container">
-        <form action="" method="post">
+        <form action="#" method="post">
             <!-- firstname -->
             <div class="form-group" style="margin-top: 25px;">
             <label for="firstname">Vorname *</label>
             <input type="text" name="firstname" class="form-control" id="firstname"
                 value="<?php echo $_SESSION['firstname']; ?>"
                 maxlength="100"
-                required="true">
+                required>
             </div>
             <!-- lastname -->
             <div class="form-group" style="margin-top: 25px;">
@@ -101,7 +101,7 @@
             <input type="text" name="lastname" class="form-control" id="lastname"
                 value="<?php echo $_SESSION['lastname'] ?>"
                 maxlength="100"
-                required="true">
+                required>
             </div>
             <button type="submit" name="button" value="submit" class="btn btn-primary" style="margin-top: 25px; margin-right: 25px;">Speichern</button>
         </form>

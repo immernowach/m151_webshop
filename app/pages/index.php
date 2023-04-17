@@ -37,7 +37,7 @@ if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
             <?php
             require_once "../universal/dbconnector.inc.php";
 
-            $result = $mysqli->query("SELECT * FROM products LIMIT 100"); // limited to 100 rows for performance reasons - increase if needed or add pages
+            $result = $mysqli->query("SELECT * FROM products LIMIT 100"); // limited to 100 rows for performance reasons. increase if needed or add pages
 
             if ($result->num_rows > 0) {
                 // output data of each row

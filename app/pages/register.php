@@ -22,30 +22,30 @@
           $firstname = trim($_POST['firstname']);
 
           if(empty($firstname) || strlen($firstname) > 100){
-            $error .= "Geben Sie bitte ein validen Vornamen ein.<br />";
+            $error .= "Geben Sie bitte ein validen Vornamen ein.<br>";
           }
         } else {
-          $error.= "Geben Sie bitte ein validen Vornamen ein.<br />";
+          $error.= "Geben Sie bitte ein validen Vornamen ein.<br>";
         }
 
         if(isset($_POST['lastname'])){
           $lastname = trim($_POST['lastname']);
 
           if(empty($firstname) || strlen($firstname) > 100) {
-            $error .= "Geben Sie bitte ein validen Nachnamen ein.<br />";
+            $error .= "Geben Sie bitte ein validen Nachnamen ein.<br>";
           }
         } else {
-          $error.= "Geben Sie bitte ein validen Nachnamen ein.<br />";
+          $error.= "Geben Sie bitte ein validen Nachnamen ein.<br>";
         }
 
         if(isset($_POST['email'])){
           $email = trim($_POST['email']);
 
           if(empty($email) || strlen($email) > 100 || filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-            $error .= "Geben Sie bitte eine korrekte Emailadresse ein.<br />";
+            $error .= "Geben Sie bitte eine korrekte Emailadresse ein.<br>";
           }
         } else {
-          $error.= "Geben Sie bitte eine Emailadresse ein.<br />";
+          $error.= "Geben Sie bitte eine Emailadresse ein.<br>";
         }
 
         if(isset($_POST['password'])){
@@ -53,10 +53,10 @@
           $password = password_hash($password, PASSWORD_DEFAULT);
 
           if(empty($password) || !preg_match("/(?=^.{8,255}$)((?=.*\d+)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $password)){
-            $error .= "Geben Sie bitte einen korrektes Password ein.<br />";
+            $error .= "Geben Sie bitte einen korrektes Password ein.<br>";
           }
         } else {
-          $error.= "Geben Sie bitte ein Password ein.<br />";
+          $error.= "Geben Sie bitte ein Password ein.<br>";
         }
         
         if(empty($error)) { // TODO check if email already exists, TODO insert firstname and lastname
@@ -80,7 +80,7 @@
         if(!empty($error)){
           echo "<div class=\"alert alert-danger\" role=\"alert\">" . $error . "</div>";
         } else if (!empty($message)){
-          echo "<div class=\"alert alert-success\" role=\"alert\">" . $message . "</div>";
+          echo '<div class=\"alert alert-success\" role=\"alert\">" . $message . "</div>';
         }
       ?>
       <form action="" method="post">
@@ -91,7 +91,7 @@
             value="<?php echo $firstname ?>"
             placeholder="Geben Sie Ihren Vornamen an."
             maxlength="100"
-            required="true">
+            required>
         </div>
         <!-- lastname -->
         <div class="form-group" style="margin-top: 25px;">
@@ -100,7 +100,7 @@
             value="<?php echo $lastname ?>"
             placeholder="Geben Sie Ihren Nachnamen an."
             maxlength="100"
-            required="true">
+            required>
         </div>
         <!-- email -->
         <div class="form-group" style="margin-top: 25px;">
@@ -109,7 +109,7 @@
             value="<?php echo $email ?>"
             placeholder="Geben Sie Ihre Email-Adresse an."
             maxlength="100"
-            required="true">
+            required>
         </div>
         <!-- password -->
         <div class="form-group" style="margin-top: 25px;">
@@ -119,7 +119,7 @@
             pattern="(?=^.{8,}$)((?=.*\d+)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
             title="Mindestens einen Gross-/und einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen, mindestens 8 Zeichen lang, keine Umlaute."
             maxlength="255"
-            required="true">
+            required>
         </div>
         <button type="submit" name="button" value="submit" class="btn btn-primary" style="margin-top: 25px; margin-right: 25px;">Senden</button>
         <button type="reset" name="button" value="reset" class="btn btn-warning" style="margin-top: 25px;">Löschen</button>

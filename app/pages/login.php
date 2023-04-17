@@ -21,12 +21,12 @@
         if(isset($_POST['email'])){
             $email = trim($_POST['email']);
         } else {
-            $error .= "Geben Sie bitte ihre E-Mail Adresse an.<br />";
+            $error .= "Geben Sie bitte ihre E-Mail Adresse an.<br>";
         }
         if(isset($_POST['password'])){
             $password = trim($_POST['password']);
         } else {
-            $error .= "Geben Sie bitte das Passwort an.<br />";
+            $error .= "Geben Sie bitte das Passwort an.<br>";
         }
         
         if(empty($error)){
@@ -74,7 +74,7 @@
                 echo "<div class=\"alert alert-danger\" role=\"alert\">" . $error . "</div>";
             }
         ?>
-        <form action="" method="POST">
+        <form action="#" method="POST">
             <!-- email -->
             <div class="form-group" style="margin-top: 25px;">
                 <label for="email">E-Mail-Adresse *</label>
@@ -83,7 +83,7 @@
                     placeholder="Email hier eingeben"
                     title="E-Mail-Adresse"
                     maxlength="30" 
-                    required="true">
+                    required>
             </div>
             <!-- password -->
             <div class="form-group" style="margin-top: 25px;">
@@ -91,7 +91,7 @@
                 <input type="password" name="password" class="form-control" id="password"
                     placeholder="Passwort hier eingeben"
                     maxlength="255"
-                    required="true">
+                    required>
             </div>
             <button type="submit" name="button" value="submit" class="btn btn-primary" style="margin-top: 25px; margin-right: 25px;">Login</button>
         </form>

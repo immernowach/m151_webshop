@@ -37,9 +37,16 @@
                 $absolute_total = $absolute_total + $subtotal;
 
                 echo '<h3>' . $obj->name . '</h3>';
-                echo '<b>Menge: </b>' . $quantity . '<b> Preis: </b>' . $subtotal . ' CHF';
+                echo '<b>Menge: </b>' . $quantity . ' Stück' . '<br>';
+                echo '<b> Preis: </b>' . $subtotal . ' CHF';
+
+                echo '<form action="../universal/removefromcart.inc.php" method="post">';
+                echo '<input type="hidden" name="product_id" value="' . $product_id . '">';
+                echo '<button type="submit" class="btn btn-sm btn-danger">Entfernen</button>';
+                echo '</form>';
+                echo '<br>';
             }
-            echo '<br><br><b>Gesamtpreis: ' . $absolute_total . ' CHF</b>';
+            echo '<br><b>Gesamtpreis: ' . $absolute_total . ' CHF</b>';
         } else {
             echo 'Warenkorb ist leer';
         }

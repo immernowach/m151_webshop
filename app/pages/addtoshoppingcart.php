@@ -1,42 +1,3 @@
-<?php 
-    session_start();
-    session_regenerate_id();
-    if ($_SESSION['loggedin'] == false) {
-        header('Location: ../pages/login.php');
-    }
-    include '../universal/dbconnector.inc.php';
-?>
-
-<?php 
-    if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
-
-    $product_id = (int)$_POST['product_id'];
-    
-        // Product exists in database, now we can create/update the session variable for the cart
-        if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
-
-            if (array_key_exists($product_id, $_SESSION['cart'])) {
-                if (isset($_POST['quantity'])) {
-                    $quantity = (int)$_POST['quantity'];
-                    $_SESSION['cart'][$product_id] = $quantity;
-                } else {
-                    // Product exists in cart so just update the quanity
-                    $_SESSION['cart'][$product_id]++;
-                }
-            } else {
-                // Product is not in cart so add it
-                $_SESSION['cart'][$product_id] = 1;
-            }
-        } else {
-            // There are no products in cart, this will add the first product to the cart
-            $_SESSION['cart'] = array($product_id => 1);
-        }
-        
-    // Prevent form resubmission...
-        header('location: addtoshoppingcart.php');
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -47,6 +8,46 @@
     <title>Bestätigung</title>
 </head>
 <body>
+
+    <?php 
+        session_start();
+        session_regenerate_id();
+        if ($_SESSION['loggedin'] == false) {
+            header('Location: ../pages/login.php');
+        }
+        include '../universal/dbconnector.inc.php';
+    ?>
+
+    <?php 
+        if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
+
+        $product_id = (int)$_POST['product_id'];
+        
+            // Product exists in database, now we can create/update the session variable for the cart
+            if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+
+                if (array_key_exists($product_id, $_SESSION['cart'])) {
+                    if (isset($_POST['quantity'])) {
+                        $quantity = (int)$_POST['quantity'];
+                        $_SESSION['cart'][$product_id] = $quantity;
+                    } else {
+                        // Product exists in cart so just update the quanity
+                        $_SESSION['cart'][$product_id]++;
+                    }
+                } else {
+                    // Product is not in cart so add it
+                    $_SESSION['cart'][$product_id] = 1;
+                }
+            } else {
+                // There are no products in cart, this will add the first product to the cart
+                $_SESSION['cart'] = array($product_id => 1);
+            }
+            
+        // Prevent form resubmission...
+            header('location: addtoshoppingcart.php');
+        }
+    ?>
+
     <div style="height: 200px;"></div>
 
     <div class="mx-auto" style="width: 700px;">
