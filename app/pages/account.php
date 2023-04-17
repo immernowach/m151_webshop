@@ -31,7 +31,14 @@
         if ($_SESSION['loggedin']) {
             echo '<a href="./myaccount.php" class="btn btn-primary" style="margin-top: 25px;">Meine Daten</a> ';
             echo '<a href="../universal/logout.inc.php" class="btn btn-primary" style="margin-top: 25px;">Logout</a>';
+            echo '<div style="height: 10px;"></div>';
+            echo '<form action="../universal/deleteuser.inc.php" method="post">';
+                echo '<input type="hidden" value="">';
+                echo '<button type="submit" class="btn btn-danger">Benutzer löschen</button>';
+                echo '</form>';
         }
+
+        
     ?>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

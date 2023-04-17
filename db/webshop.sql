@@ -24,12 +24,3 @@ CREATE TABLE products (
 
     primary key (id)
 );
-
-CREATE TABLE orders (
-    id int(11) not null auto_increment,
-    user_email varchar(255) not null,
-    order_total decimal(10,2),
-    order_date datetime,
-    primary key (id),
-    foreign key (user_email) references users(email),
-);
