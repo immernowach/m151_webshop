@@ -1,6 +1,5 @@
 compose-dev.yaml
 docker-compose.yaml
-/app/index.php
 .vscode
 *.session.sql
 .idea
