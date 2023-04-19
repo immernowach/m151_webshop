@@ -19,12 +19,12 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if(isset($_POST['email'])){
-            $email = trim($_POST['email']);
+            $email = htmlspecialchars(trim($_POST['email']));
         } else {
             $error .= "Geben Sie bitte ihre E-Mail Adresse an.<br>";
         }
         if(isset($_POST['password'])){
-            $password = trim($_POST['password']);
+            $password = htmlspecialchars(trim($_POST['password']));
         } else {
             $error .= "Geben Sie bitte das Passwort an.<br>";
         }

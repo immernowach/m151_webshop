@@ -37,7 +37,7 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         if(isset($_POST['firstname'])){
-          $firstname = trim($_POST['firstname']);
+          $firstname = htmlspecialchars(trim($_POST['firstname']));
 
           if(empty($firstname) || strlen($firstname) > 100){
             $error .= "Geben Sie bitte ein validen Vornamen ein.<br>";
@@ -47,7 +47,7 @@
         }
 
         if(isset($_POST['lastname'])){
-          $lastname = trim($_POST['lastname']);
+          $lastname = htmlspecialchars(trim($_POST['lastname']));
 
           if(empty($firstname) || strlen($firstname) > 100) {
             $error .= "Geben Sie bitte ein validen Nachnamen ein.<br>";
