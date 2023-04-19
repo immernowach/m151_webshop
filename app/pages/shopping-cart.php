@@ -24,6 +24,10 @@
 
     <h1>Warenkorb</h1>
 
+    <div style="height: 50px;"></div>
+
+    <div class="mx-auto" style="width: 700px;">     
+
     <?php 
         if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
             $absolute_total = 0;
@@ -51,6 +55,8 @@
             echo 'Warenkorb ist leer';
         }
     ?>
+
+    </div>
 
     <form action="./successfullyordered.php" method="post">
         <button type="submit" class="btn btn-primary">Bestellen</button>
