@@ -79,7 +79,7 @@
           $stmt->execute();
           $stmt->close();
           $message = "Sie wurden erfolgreich registriert.";
-          header('Location: account.php');
+          header('Location: login.php');
         }
       }
     ?>
