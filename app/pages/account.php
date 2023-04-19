@@ -30,6 +30,7 @@
         }
         if ($_SESSION['loggedin']) {
             echo '<a href="./myaccount.php" class="btn btn-primary" style="margin-top: 25px;">Meine Daten</a> ';
+            echo '<a href="./changepassword.php" class="btn btn-primary" style="margin-top: 25px;">Passwort ändern</a> ';
             echo '<a href="../universal/logout.inc.php" class="btn btn-primary" style="margin-top: 25px;">Logout</a>';
             echo '<div style="height: 10px;"></div>';
             echo '<form action="../universal/deleteuser.inc.php" method="post">';
