@@ -58,6 +58,7 @@
 
                     if($result){
                         $message = 'Ihr Passwort wurde erfolgreich geändert.';
+                        header('Location: ./index.php');
                     } else {
                         $error = 'Es ist ein Fehler aufgetreten.';
                     }
