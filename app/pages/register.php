@@ -58,8 +58,21 @@
         } else {
           $error.= "Geben Sie bitte ein Password ein.<br>";
         }
+
+        if(isset($_POST['email'])){
+          $query = "SELECT * FROM users WHERE email = ?";
+          $stmt = $mysqli->prepare($query);
+          $stmt->bind_param("s", $email);
+          $stmt->execute();
+          $result = $stmt->get_result();
+          $stmt->close();
+
+          if($result->num_rows > 0){
+            $error .= "Diese Emailadresse wurde bereits registriert.<br>";
+          }
+        }
         
-        if(empty($error)) { // TODO check if email already exists, TODO insert firstname and lastname
+        if(empty($error)) {
           $query = "INSERT INTO users (firstname, lastname, password, email) VALUES (?, ?, ?, ?)";
           $stmt = $mysqli->prepare($query);
           $stmt->bind_param("ssss", $firstname, $lastname, $password, $email);
